@@ -17,6 +17,10 @@ public class Tiquete {
         this.usado = false;
     }
 
+	public Tiquete(Cliente cliente, Vuelo vuelo2) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getCodigo() {
 		return codigo;
 	}

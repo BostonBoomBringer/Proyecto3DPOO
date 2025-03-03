@@ -1,5 +1,8 @@
 package uniandes.dpoo.aerolinea.modelo;
 
+import uniandes.dpoo.aerolinea.modelo.Vuelo;
+import uniandes.dpoo.aerolinea.modelo.cliente.Cliente;
+import uniandes.dpoo.aerolinea.modelo.Ruta;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,10 +15,49 @@ import uniandes.dpoo.aerolinea.exceptions.AeropuertoDuplicadoException;
  */
 public class Aeropuerto
 {
-    // TODO completar
-    
+    private static final double RADIO_TERRESTRE = 0;
+	// TODO completar
+    private String nombre;
+    private String codigo;
+    private String nombreCiudad;
+    private double latitud;
+    private double longitud;
+    private Set<String> rutasDisponibles;
 
-    /**
+    public Aeropuerto(String nombre, String codigo, String nombreCiudad, double latitud, double longitud) {
+        this.nombre = nombre;
+        this.codigo = codigo;
+        this.nombreCiudad = nombreCiudad;
+        this.latitud = latitud;
+        this.longitud = longitud;
+        this.rutasDisponibles = new HashSet<>();
+    }
+
+    public String getNombre() {
+		return nombre;
+	}
+
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public String getNombreCiudad() {
+		return nombreCiudad;
+	}
+
+	public double getLatitud() {
+		return latitud;
+	}
+
+	public double getLongitud() {
+		return longitud;
+	}
+
+	public Set<String> getRutasDisponibles() {
+		return rutasDisponibles;
+	}
+
+	/**
      * Este método calcula la distancia *aproximada* entre dos aeropuertos. Hay fórmulas más precisas pero esta es suficientemente buena para el caso de la aerolínea.
      * 
      * Este método asume que las coordenadas (latitud y longitud) de los aeropuertos están expresadas en la forma que las hace más cercanas. Si no es así, la distancia entre
@@ -44,6 +86,15 @@ public class Aeropuerto
         double distancia = Math.sqrt( deltaX * deltaX + deltaY * deltaY ) * RADIO_TERRESTRE;
 
         return ( int )Math.round( distancia );
+    }
+    public String toString() {
+        return "Aeropuerto{" +
+                "nombre='" + nombre + '\'' +
+                ", codigo='" + codigo + '\'' +
+                ", nombreCiudad='" + nombreCiudad + '\'' +
+                ", latitud=" + latitud +
+                ", longitud=" + longitud +
+                '}';
     }
 
 }

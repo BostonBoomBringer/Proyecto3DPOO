@@ -10,7 +10,7 @@ public abstract class Cliente {
 	    protected String tipoCliente;
 	    protected List<Tiquete> tiquetes;
 
-	    public String getClienteID() {
+	    public String getIdentificador() {
 			return clienteID;
 		}
 
@@ -30,5 +30,6 @@ public abstract class Cliente {
 	        this.tipoCliente = tipoCliente;
 	        this.tiquetes = new ArrayList<>();
 	    }
+
 
 }
